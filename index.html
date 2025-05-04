@@ -1,162 +1,332 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>mcc的网页</title>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站首页</title>
     <style>
-      div,figure,img,input,button {
-	box-sizing: border-box;
-}
-#header .center {
-	max-width: 300px;
-	height: 10px;
-	margin: 0 auto;
-}
-#tour {
-	max-width: 300px;
-	height: 500px;
-	text-align: center;
-	margin-top: 50px;
-	margin-right: auto;
-	margin-bottom: 30px;
-	margin-left: auto;
-	}
-    #footer {
-	background-color: #222;
-	clear:both;
-	position: relative;
-	top: 20px;
-}
-.banner{ width:100%; height:100px; overflow:hidden; position:relative;font-size:0;top:70px;}
+        /* 全局样式*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* 头部样式*/
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 导航栏样式*/
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        nav ul li {
+            cursor: pointer;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* 景点卡片样式*/
+       .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+       .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+       .card h2 {
+            margin-bottom: 10px;
+        }
+
+       .card p {
+            color: #666;
+        }
+
+        /* 底部样式*/
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* 响应式调整*/
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+
+        /* 轮播图样式 */
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: white;
+        }
     </style>
-    <script>
+</head>
 
-</script>
-  </head>
-  <body>
-     <header id="header">
+<body>
+    <!-- 头部 -->
+    <header>
+        <h1>学海无涯</h1>
+    </header>
 
-        <div class="center">
-            <h1 class="logo"></h1>
-            <nav class="link">
-                <h2 class="none"></h2>
-                <ul>
-                    <li class="active"><a href=""></a></li>
-                    <li><a href="###"></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href="###"></a></li>
-                    <li><a href=""></a></li>
-                </ul>
-            </nav>
-        </div>
-        </header>
-        <div class="banner" >
-            <div class="b-img">
-                <a href="#" style=""></a>
-                <a href="#" style=""></a>
-                <a href="#" style=""></a>
-                <a href="#" style=""></a>
-                <a href="#" style=""></a>
-                <a href="#" style=""></a>  
-                <a href="#" style=""></a>
-                <a href="#" style=""></a>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="#">小学</a></li>
+            <li><a href="#">初中</a></li>
+            <li><a href="#">高中</a></li>
+        </ul>
+    </nav>
+
+    <!-- 轮播图 -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="images/1.png?text=图片1" alt="轮播图1">
             </div>
-            <div class="b-list"></div>
-                <a class="bar-left" href="#"><em></em></a><a class="bar-right" href="#"><em></em></a>
-     </div>	    
-    <div id="tour">
-	<section class="center">
-		<h2>学海无涯</h2>
-		
-	</section>
-	<figure>
-		<a href="https://pan.quark.cn/s/2e093041cbc7" target="_blank"><img src="" alt="启蒙英语动画" border="0" ></a>
-		
-</figure>
-	 <figure>
-		<a href="https://pan.quark.cn/s/517b8c2b15d3" target="_blank"><img src="" alt="小学专区" border="0" ></a>
-		
-</figure>   
-	
-	<figure>
-		<a href="https://pan.quark.cn/s/e73dba3ffa35" target="_blank"><img src="" alt="初中专区"></a>
-		
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/e266c9b5c8fd" target="_blank"><img src="" alt="高中专区"></a>
-		
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/fde05b0a68bc" target="_blank"><img src="" alt="董宇辉英语教学" width="380" height="230"></a>
-		
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/46dd6c023398" target="_blank"><img src="" alt="专升本区"></a>
-		
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/252f4e3eb40b" target="_blank"><img src="" alt="考研专区"></a>
-		
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/f73f18804d73" target="_blank"><img src="" alt="大学专区" ></a>
-		
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/02e63a9f524f" target="_blank"><img src="" alt="考公专区"></a>
-		
-</figure>
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/63b814688151" target="_blank"><img src="" alt="AI实操课" width="380" height="238"></a>
-		
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/7cd94e0eb714" target="_blank"><img src="" alt="更多..." width="380" height="238"></a>
-		
-</figure>
-	<figure>
-		<a href="https://pan.quark.cn/s/9b4f34cd8e06" target="_blank"><img src="" alt="更多想要的..." width="380" height="238"></a>
-		
-</figure>   
-</div>
- <footer id="footer">
+            <div class="slide">
+                <img src="images/2.png?text=图片2" alt="轮播图2">
+            </div>
+            <div class="slide">
+                <img src="images/3.png?text=图片3" alt="轮播图3">
+            </div>
+            <div class="slide">
+                <img src="images/4.png?text=图片4" alt="轮播图4">
+            </div>
+        </div>
+        <button class="prev-btn">❮</button>
+        <button class="next-btn">❯</button>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
 
-	              <div class="top sm-hidden">
-		               <div class="block left">
-			                <h2></h2>
-			                <hr>
-			                <ul>
-				                <li></li>
-				                <li></li>
-				                <li></li>
-		                    </ul>
-		               </div>
-		               <div class="block center">
-			                <h2></h2>
-			                <hr>
-			                <ul>
-				                <li></li>
-				                <li></li>
-			                	<li></li>
-							
-			                </ul>
-		               </div>
-		               <div class="block right">
-			               <h2></h2>
-			               <hr>
-			               <ul>
-				               <li></li>
-				               <li></li>
-				               <li></li>
-			               </ul>
-		               </div>
-	             </div>
-		         <div class="clearfix"></div>
-	             <div class="version sm-visible">
-		             
-	             </div>
-	             <div class="bottom"></div>
-             </footer>
-  </body>
+    <!-- 景点卡片 -->
+    <div class="card">
+        <a href="https://pan.quark.cn/s/517b8c2b15d3"><img src="" alt="">小学专区</a>
+        <h2></h2>
+        <p></p>
+    </div>
+
+    <div class="card">
+        <a href="https://pan.quark.cn/s/e73dba3ffa35"><img src="" alt="">初中专区</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <div class="card">
+        <a href="https://pan.quark.cn/s/e266c9b5c8fd"><img src="" alt="">高中专区</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <div class="card">
+        <a href="https://pan.quark.cn/s/f73f18804d73"><img src="" alt="">大学专区</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <div class="card">
+        <a href="https://pan.quark.cn/s/46dd6c023398"><img src="" alt="">专升本区</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <div class="card">
+        <a href="https://pan.quark.cn/s/252f4e3eb40b"><img src="" alt="">考研专区</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <div class="card">
+        <a href="https://pan.quark.cn/s/02e63a9f524f"><img src="" alt="">考公专区</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <div class="card">
+        <a href="https://pan.quark.cn/s/fde05b0a68bc"><img src="" alt="">董宇辉老师英语</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <div class="card">
+        <a href="https://pan.quark.cn/s/63b814688151"><img src="" alt="">AI实操课</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <div class="card">
+        <a href="https://pan.quark.cn/s/7cd94e0eb714"><img src="" alt="">更多...</a>
+        <h2></h2>
+        <p></p>
+    </div>
+    <!-- 底部 -->
+    <footer>
+        &copy; 2025 我的网站。保留所有权利
+    </footer>
+
+    <script>
+        // 轮播图功能
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            prevSlide();
+            startAutoSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            nextSlide();
+            startAutoSlide();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopAutoSlide();
+                currentSlide = index;
+                updateSlider();
+                startAutoSlide();
+            });
+        });
+
+        startAutoSlide();
+
+        // 简单的导航栏点击事件示例
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = this.textContent.toLowerCase();
+                // 这里可以添加根据点击的链接进行页面跳转或内容显示的逻辑
+                console.log(`点击了 ${target} 链接`);
+            });
+        });
+    </script>
+</body>
+
 </html>
